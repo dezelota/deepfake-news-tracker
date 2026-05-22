@@ -1,5 +1,11 @@
 import sqlite3
-import ollama
+import anthropic
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+MODEL = "claude-sonnet-4-5"
 
 # connect to the database
 db = sqlite3.connect("deepfake.db")
@@ -24,21 +30,22 @@ TAGS = [
 for article_id, title, summary in articles:
     print(f"Tagging: {title[:60]}...")
 
-    response = ollama.chat(
-        model="llama3.2",
-        messages=[{
-            "role": "user",
-            "content": f"""Choose the most relevant tag for this article from the list below.
+    message = client.messages.create(
+    model=MODEL,
+    max_tokens=32,  # tags are short so we only need a few tokens
+    messages=[{
+        "role": "user",
+        "content": f"""Choose the most relevant tag for this article from the list below.
 Reply with just the tag, nothing else.
 
 Tags: {", ".join(TAGS)}
 
 Title: {title}
 Summary: {summary}"""
-        }]
-    )
+    }]
+)
 
-    tag = response["message"]["content"].strip()
+    tag = message.content[0].text.strip()
 
     # save tag to database
     cursor.execute(

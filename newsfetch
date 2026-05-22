@@ -13,11 +13,16 @@ def tag():
     print("Tagging articles...")
     import tagger
 
+def makecsv():
+    print("Creating csv...")
+    import export
+
 # set up command line arguments
 parser = argparse.ArgumentParser(description="Deepfake News Tracker")
 parser.add_argument("--fetch",     action="store_true", help="Fetch new articles from RSS feeds")
-parser.add_argument("--summarize", action="store_true", help="Summarize articles using Ollama")
+parser.add_argument("--summarize", action="store_true", help="Summarize articles using claude api")
 parser.add_argument("--tag",       action="store_true", help="Tag articles by category")
+parser.add_argument("--export",    action="store_true", help="export db as a csv")
 parser.add_argument("--all",       action="store_true", help="Run all steps")
 
 args = parser.parse_args()
@@ -28,6 +33,8 @@ if args.all or args.summarize:
     summarize()
 if args.all or args.tag:
     tag()
+if args.all or args.export:
+    makecsv()
 
 if not any(vars(args).values()):
     parser.print_help()

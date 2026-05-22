@@ -8,5 +8,6 @@ dependencies:
   - pip:
     - feedparser==6.0.12
     - newspaper3k==0.2.8
-    - ollama==0.6.2
+    - anthropic
+    - python-dotenv
     - lxml-html-clean==0.4.5
