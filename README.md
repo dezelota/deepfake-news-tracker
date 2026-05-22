@@ -18,7 +18,7 @@ All data is stored in a local SQLite database (`deepfake.db`). Deduplication is 
 
 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/deepfake-news-tracker.git
+git clone https://github.com/dezelota/deepfake-news-tracker.git
 cd deepfake-news-tracker
 ```
 
