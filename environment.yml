@@ -1,0 +1,12 @@
+name: deepfake-tracker
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - feedparser==6.0.12
+    - newspaper3k==0.2.8
+    - ollama==0.6.2
+    - lxml-html-clean==0.4.5
