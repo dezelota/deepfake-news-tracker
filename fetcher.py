@@ -40,13 +40,28 @@ print("database created :)")
 ####################################################
 
 feeds = {
-    "Ars Technica": "https://feeds.arstechnica.com/arstechnica/technology-lab",
-    "Hacker News": "https://hnrss.org/newest?q=deepfake",
-    "NYT Technology": "https://rss.nytimes.com/services/xml/rss/nyt/Technology.rss",
+    "Hacker News":   "https://hnrss.org/newest?q=deepfake",
+    "Ars Technica":  "https://feeds.arstechnica.com/arstechnica/index",
+    "NPR":           "https://feeds.npr.org/1019/rss.xml",
+    "Wired":         "https://www.wired.com/feed/rss",
+    "Time":          "https://time.com/feed/",
 }
 
-keywords = ["deepfake", "synthetic media", "AI-generated"]
-
+keywords = [
+    "deepfake",
+    "synthetic media", 
+    "AI-generated",
+    "nonconsensual",
+    "TAKE IT DOWN Act",
+    "Take it Down Act",
+    "AI porn",
+    "face swap",
+    "voice clone",
+    "audio deepfake",
+    "synthetic voice",
+    "AI voice",
+    "vocal deepfake",
+]
 matched_articles = []
 
 for source, url in feeds.items():

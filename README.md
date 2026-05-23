@@ -4,7 +4,7 @@ A command-line tool that collects recent news articles about deepfakes from mult
 
 ## How it works
 
-1. **Fetch**: pulls articles from 3 RSS feeds (Ars Technica, Hacker News, NYT Technology), filters for deepfake-related content, and scrapes the full article text
+1. **Fetch**: pulls articles from 5 RSS feeds (Hacker News, Ars Technica, NPR, Wired, Time), filters for deepfake and synthetic media related content, and scrapes the full article text
 2. **Summarize**: sends each article to Claude and generates a 2-3 sentence summary
 3. **Tag**: classifies each article into one of 6 fixed categories: `technology`, `crime & scams`, `politics & policy`, `privacy & consent`, `education`, or `entertainment`
 4. **Export**: exports all articles to a CSV file
@@ -62,9 +62,11 @@ If you run with no arguments it will print the help menu:
 
 ## Sources
 
-- [Ars Technica](https://feeds.arstechnica.com/arstechnica/technology-lab)
 - [Hacker News](https://hnrss.org/newest?q=deepfake)
-- [NYT Technology](https://rss.nytimes.com/services/xml/rss/nyt/Technology.rss)
+- [Ars Technica](https://feeds.arstechnica.com/arstechnica/index)
+- [NPR](https://feeds.npr.org/1019/rss.xml)
+- [Wired](https://www.wired.com/feed/rss)
+- [Time](https://time.com/feed/)
 
 ## Database schema
 

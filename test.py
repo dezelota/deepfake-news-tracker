@@ -1,8 +1,12 @@
-import sqlite3
-db = sqlite3.connect("deepfake.db")
-cursor = db.cursor()
-cursor.execute("SELECT title, tags FROM articles WHERE tags IS NOT NULL")
-rows = cursor.fetchall()
-for title, tags in rows:
-    print(f"{tags:<25} {title[:60]}")
-db.close()
+import feedparser
+
+feeds = [
+    "https://time.com/feed/",
+    "https://time.com/tag/deepfake/feed/",
+]
+
+for url in feeds:
+    feed = feedparser.parse(url)
+    print(f"{url}: {len(feed.entries)} entries")
+    if feed.entries:
+        print(f"  Sample: {feed.entries[0].title}")
